@@ -1,0 +1,10 @@
+<%
+			int type = Integer.parseInt(request.getParameter("type"));
+			if (type <= 0) {
+		%><h1 align="center" style="color:red">
+			<a href="homepage.jsp">请到主页选择商品类型!</a>
+		</h1>
+		<%
+			} else{
+			RoseService ro = new RoseService();
+			List<Rose> roses = ro.slectRoseByType(typ）%>
