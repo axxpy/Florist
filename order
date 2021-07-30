@@ -1,0 +1,13 @@
+public OrderDetailOperate odo = new OrderDetailOperate();
+	//根据odid来查询OrderDetail信息
+	public OrderDetail orderDetailLogin(String odid) {
+		//判断odid是否为空
+		OrderDetail orderdetail = odo.orderDetailLogin(odid);
+		return orderdetail;
+	}
+	//添加用户
+	public int orderDetailregister(OrderDetail orderdetail) {
+		//判断orderdetail是不是为null
+		int result = odo.orderDetailregister(orderdetail);
+		return result;
+	}
