@@ -1,0 +1,25 @@
+Map<String, Car> carMap = null;
+	//接收页面传入的数据
+	String rosecode = request.getParameter("rosecode");//获得花的编号
+	if (carMap == null) {//购物车不存在
+		//创建购物车对象(Map集合实现)
+		carMap = new HashMap<String, Car>();
+	}
+	//检测购物车中是否存在要购买的花
+	if (carMap.containsKey(rosecode)) {//存在，返回true
+		Car car = carMap.get(rosecode);
+		car.setCount(car.getCount() + 1);
+	} else {//不存在
+			//创建处理类对象
+		RoseService rs = new RoseService();
+		//根据编号查询花
+		Rose rose = rs.roseLogin(rosecode);
+		//将Flower对象封装为Car对象
+		Car car = new Car();
+		car.setRose(rose);
+		car.setCount(1);
+		//将Car对象放入到购物车中
+		carMap.put(rosecode, car);
+	}
+	//将购物车放入到session中
+	session.setAttribute("carMap", carMap);
