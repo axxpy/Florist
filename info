@@ -1,0 +1,5 @@
+<%
+		String rosecode = request.getParameter("rosecode");
+		RoseService rs = new RoseService();
+		Rose rose = rs.roseLogin(rosecode);
+	%>
